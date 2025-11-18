@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAUL - Inicio de Sesión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'saul-blue': '#2D60A1', // Color principal del encabezado y botón
+                        'saul-hover': '#234d80', // Color de hover del botón
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <link rel="icon" type="image/jpg" href="Imagenes/Logo_unila.jpg">
+    <script src="Scripts/login.js" defer></script>
+</head>
+
+<body class="m-0 font-sans flex justify-center items-center min-h-screen 
+             bg-[url('Imagenes/Campus.jpg')] bg-cover bg-center bg-no-repeat text-gray-700">
+    
+    <div class="bg-white rounded-xl shadow-lg w-[350px] overflow-hidden text-center">
+        
+        <header class="bg-saul-blue text-white py-4 px-5 flex justify-between items-center">
+            
+            <div class="flex items-center text-lg font-bold">
+                <img src="Imagenes/Logo_unila.jpg" alt="SAUL Logo" class="mr-2 h-8 w-8 rounded-full"> 
+                <span>SAUL</span>
+            </div>
+        </header>
+
+        <div class="p-8">
+            
+            <div id="login-form-content" class=""> 
+                <h1 class="text-xl font-semibold mb-2 text-gray-700">ASISTENTE VIRTUAL DE SAUL</h1>
+                <h2 class="text-lg mb-8 text-gray-600">INICIO DE SESIÓN</h2>
+                
+                <form id="loginForm">
+                    <div class="mb-4">
+                        <input type="email" id="email" placeholder="Correo electrónico" required
+                               class="w-full py-3 px-3 border border-gray-300 rounded-lg text-base 
+                                      focus:outline-none focus:ring-2 focus:ring-saul-blue/50 focus:border-saul-blue">
+                        </div>
+                    
+                    <div class="mb-4">
+                        <input type="password" id="password" placeholder="Contraseña" required
+                               class="w-full py-3 px-3 border border-gray-300 rounded-lg text-base 
+                                      focus:outline-none focus:ring-2 focus:ring-saul-blue/50 focus:border-saul-blue">
+                    </div>
+                    
+                    <button type="submit" class="bg-saul-blue text-white py-3 px-5 border-none rounded-md text-lg 
+                                                 cursor-pointer w-full mt-3 transition duration-300 hover:bg-saul-hover">
+                        Enviar
+                    </button>
+                </form>
+                
+                <a href="#" class="block mt-5 text-saul-blue no-underline text-sm hover:underline" id="show-register-link">
+                    ¿Registrarse?
+                </a> 
+            </div>
+
+            <div id="register-form-content" class="hidden"> 
+                <h1 class="text-xl font-semibold mb-2 text-gray-700">ASISTENTE VIRTUAL DE SAUL</h1>
+                <h2 class="text-lg mb-8 text-gray-600">REGISTRAR NUEVA CUENTA</h2>
+                
+                <form id="registerForm">
+                    <div class="mb-4">
+                        <input type="text" id="reg-nombre" placeholder="Nombre completo" required
+                               class="w-full py-3 px-3 border border-gray-300 rounded-lg text-base 
+                                      focus:outline-none focus:ring-2 focus:ring-saul-blue/50 focus:border-saul-blue">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <input type="email" id="reg-email" placeholder="Correo electrónico" required
+                               class="w-full py-3 px-3 border border-gray-300 rounded-lg text-base 
+                                      focus:outline-none focus:ring-2 focus:ring-saul-blue/50 focus:border-saul-blue">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <input type="password" id="reg-password" placeholder="Crear contraseña" required
+                               class="w-full py-3 px-3 border border-gray-300 rounded-lg text-base 
+                                      focus:outline-none focus:ring-2 focus:ring-saul-blue/50 focus:border-saul-blue">
+                    </div>
+                    
+                    <button type="submit" class="bg-saul-blue text-white py-3 px-5 border-none rounded-md text-lg 
+                                                 cursor-pointer w-full mt-3 transition duration-300 hover:bg-saul-hover">
+                        Crear Cuenta
+                    </button>
+                </form>
+                
+                <a href="#" class="block mt-5 text-saul-blue no-underline text-sm hover:underline" id="show-login-link">
+                    Volver a Iniciar Sesión
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

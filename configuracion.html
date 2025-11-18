@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuración del Sistema - SAUL</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    // Configuración de Tailwind CSS con colores de la Universidad
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'saul-blue': '#1E3A8A',     // Azul oscuro (Principal)
+                    'saul-hover': '#1e40af',    // Azul un poco más claro para hover
+                    'saul-accent': '#FBBF24',   // Amarillo (Acento)
+                    'saul-light': '#F9FAFB',    // Fondo muy claro (Blanco roto)
+                },
+            }
+        }
+    }
+  </script>
+  
+  <link rel="icon" type="image/jpeg" href="Imagenes/Logo_unila.jpg">
+  <script src="Scripts/configuracion.js" defer></script> 
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <div class="flex min-h-screen">
+
+    <aside class="w-64 bg-saul-blue text-white border-r border-saul-hover p-5 flex flex-col">
+      <div class="flex items-center mb-10 border-b border-saul-hover pb-4">
+        <img src="Imagenes/Logo_unila.jpg" alt="SAUL Logo" class="h-8 w-8 rounded-full border-2 border-saul-accent"> 
+        <span class="ml-3 font-semibold text-lg">Panel SAUL</span>
+      </div>
+
+      <nav class="flex flex-col space-y-2">
+        <a href="panel.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Dashboard</a>
+
+        <a href="materias.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Materias</a>
+
+        <a href="solicitudes.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Solicitudes</a>
+
+        <a href="reportes.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Reportes</a>
+
+        <a href="admin-asistente.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Administración del Asistente</a>
+
+        <a href="prueba-asistente.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Prueba del Asistente</a>
+
+        <a href="configuracion.html" class="text-saul-blue font-medium bg-saul-accent px-3 py-2 rounded-lg text-left transition duration-150">Configuración</a>
+      </nav>
+      
+      <div class="mt-auto pt-4 border-t border-saul-hover">
+        <a href="login.html" class="flex items-center space-x-2 text-white/80 hover:text-saul-accent transition duration-150">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span>Cerrar Sesión</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="flex-1 p-8">
+      
+      <header class="bg-saul-blue shadow-lg rounded-lg mb-8 p-4 text-white">
+        <div class="flex justify-between items-center">
+          <h1 class="text-2xl font-bold">Configuración del Sistema</h1>
+          <div class="flex items-center space-x-4">
+            <span class="text-sm">Hola, Admin</span>
+            <div class="bg-white text-saul-blue w-8 h-8 flex items-center justify-center rounded-full font-bold">A</div>
+          </div>
+        </div>
+      </header>
+      
+      <h2 class="text-xl font-semibold mb-6 text-saul-blue">Ajustes Generales y de Usuarios</h2>
+
+      <div class="flex border-b border-gray-200 mb-6" id="config-tabs">
+          <button id="tab-perfil" data-target="content-perfil" class="tab-button py-2 px-4 text-sm font-medium text-saul-blue border-b-2 border-saul-blue">Perfil y Seguridad</button>
+          <button id="tab-roles" data-target="content-roles" class="tab-button py-2 px-4 text-sm font-medium text-gray-500 hover:text-saul-blue hover:border-saul-blue border-b-2 border-transparent transition duration-150">Roles y Permisos</button>
+          <button id="tab-sistema" data-target="content-sistema" class="tab-button py-2 px-4 text-sm font-medium text-gray-500 hover:text-saul-blue hover:border-saul-blue border-b-2 border-transparent transition duration-150">Ajustes del Sistema</button>
+      </div>
+
+      <div id="content-perfil" class="config-content bg-white p-6 rounded-lg shadow-lg border">
+          <h3 class="font-semibold mb-4 text-saul-blue">Información de Usuario</h3>
+          
+          <form id="perfilForm" class="space-y-4 max-w-lg">
+              <div>
+                  <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre Completo</label>
+                  <input type="text" id="nombre" value="Administrador SAUL" 
+                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-saul-accent focus:border-saul-accent">
+              </div>
+
+              <div>
+                  <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+                  <input type="email" id="email" value="admin@unila.edu.co" disabled
+                         class="mt-1 block w-full border border-gray-200 bg-gray-100 rounded-md shadow-sm p-2 cursor-not-allowed">
+              </div>
+
+              <div class="pt-4 border-t border-gray-200">
+                  <h3 class="font-semibold mb-2 text-saul-blue">Cambiar Contraseña</h3>
+                  <label for="pass-nueva" class="block text-sm font-medium text-gray-700">Nueva Contraseña</label>
+                  <input type="password" id="pass-nueva" placeholder="Dejar vacío para no cambiar"
+                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-saul-accent focus:border-saul-accent">
+              </div>
+
+              <div class="flex justify-end">
+                  <button type="submit" class="bg-saul-accent text-saul-blue px-4 py-2 rounded-md hover:bg-yellow-400 font-medium transition duration-150 shadow-md">
+                      Guardar Cambios
+                  </button>
+              </div>
+          </form>
+      </div>
+      
+      <div id="content-roles" class="config-content bg-white p-6 rounded-lg shadow-lg border hidden">
+          <h3 class="font-semibold mb-4 text-saul-blue">Roles y Permisos del Sistema</h3>
+          <p class="text-gray-700 mb-4">Ajusta los permisos de los tres roles principales del sistema SAUL: Admin, Docente y Estudiante.</p>
+          
+          <div class="space-y-4">
+              <div class="p-4 border rounded-lg shadow-sm bg-saul-accent/10">
+                  <h4 class="font-bold text-lg text-saul-blue">Admin (Administrador)</h4>
+                  <p class="text-sm text-gray-700">Acceso total al Panel Administrativo (Dashboard, Materias, Solicitudes, Reportes, Configuración, Admin Asistente).</p>
+                  <button class="mt-2 text-xs text-saul-blue hover:underline font-medium">Ver/Editar Permisos detallados</button>
+              </div>
+              
+              <div class="p-4 border rounded-lg shadow-sm">
+                  <h4 class="font-bold text-lg text-saul-blue">Docente</h4>
+                  <p class="text-sm text-gray-600">Acceso limitado: Gestión de Materias y visualización de Reportes relacionados con sus asignaturas. No tiene acceso a Configuración ni Administración del Asistente.</p>
+                  <button class="mt-2 text-xs text-saul-blue hover:underline font-medium">Ver/Editar Permisos detallados</button>
+              </div>
+
+              <div class="p-4 border rounded-lg shadow-sm">
+                  <h4 class="font-bold text-lg text-saul-blue">Estudiante</h4>
+                  <p class="text-sm text-gray-600">No tiene acceso a este panel administrativo. Su rol se limita a interactuar con el asistente virtual y generar Solicitudes.</p>
+              </div>
+          </div>
+
+          <button class="mt-6 bg-saul-accent text-saul-blue px-4 py-2 rounded-md hover:bg-yellow-400 font-medium transition duration-150 shadow-md">Añadir Nuevo Rol Personalizado</button>
+      </div>
+      
+      <div id="content-sistema" class="config-content bg-white p-6 rounded-lg shadow-lg border hidden">
+          <h3 class="font-semibold mb-4 text-saul-blue">Opciones Globales</h3>
+          <form class="space-y-4 max-w-lg">
+              <div class="flex items-center">
+                  <input id="modo-mantenimiento" type="checkbox" class="h-4 w-4 text-saul-blue border-gray-300 rounded focus:ring-saul-accent">
+                  <label for="modo-mantenimiento" class="ml-3 block text-sm font-medium text-gray-700">Activar Modo Mantenimiento</label>
+              </div>
+              <div>
+                  <label for="log-level" class="block text-sm font-medium text-gray-700">Nivel de Logging</label>
+                  <select id="log-level" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-saul-accent focus:border-saul-accent">
+                      <option>Advertencias (Default)</option>
+                      <option>Errores Críticos</option>
+                      <option>Debug (Detallado)</option>
+                  </select>
+              </div>
+              <div class="flex justify-end">
+                  <button type="submit" class="bg-saul-accent text-saul-blue px-4 py-2 rounded-md hover:bg-yellow-400 font-medium transition duration-150 shadow-md">
+                      Aplicar Ajustes
+                  </button>
+              </div>
+          </form>
+      </div>
+      
+    </main>
+  </div>
+</body>
+</html>

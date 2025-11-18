@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Asistente - SAUL</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    // Configuración de Tailwind CSS con colores de la Universidad
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'saul-blue': '#1E3A8A',     // Azul oscuro (Principal)
+                    'saul-hover': '#1e40af',    // Azul un poco más claro para hover
+                    'saul-accent': '#FBBF24',   // Amarillo (Acento)
+                    'saul-light': '#F9FAFB',    // Fondo muy claro (Blanco roto)
+                },
+            }
+        }
+    }
+  </script>
+  
+  <link rel="icon" type="image/jpeg" href="Imagenes/Logo_unila.jpg">
+  <script src="Scripts/prueba.js" defer></script> 
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <div class="flex min-h-screen">
+
+    <aside class="w-64 bg-saul-blue text-white border-r border-saul-hover p-5 flex flex-col">
+      <div class="flex items-center mb-10 border-b border-saul-hover pb-4">
+        <img src="Imagenes/Logo_unila.jpg" alt="SAUL Logo" class="h-8 w-8 rounded-full border-2 border-saul-accent"> 
+        <span class="ml-3 font-semibold text-lg">Panel SAUL</span>
+      </div>
+
+      <nav class="flex flex-col space-y-2">
+        <a href="panel.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Dashboard</a>
+
+        <a href="materias.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Materias</a>
+
+        <a href="solicitudes.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Solicitudes</a>
+
+        <a href="reportes.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Reportes</a>
+
+        <a href="admin-asistente.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left" id="admin-asistente-btn">Administración del Asistente</a>
+
+        <a href="prueba-asistente.html" class="text-saul-blue font-medium bg-saul-accent px-3 py-2 rounded-lg text-left transition duration-150">Prueba del Asistente</a>
+
+        <a href="configuracion.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Configuración</a>
+
+        
+      </nav>
+      
+      <div class="mt-auto pt-4 border-t border-saul-hover">
+        <a href="login.html" class="flex items-center space-x-2 text-white/80 hover:text-saul-accent transition duration-150">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span>Cerrar Sesión</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="flex-1 p-8">
+      
+      <header class="bg-saul-blue shadow-lg rounded-lg mb-8 p-4 text-white">
+        <div class="flex justify-between items-center">
+          <h1 class="text-2xl font-bold">Admin Asistente (Conversación de Prueba)</h1>
+          <div class="flex items-center space-x-4">
+            <span class="text-sm">Modo Admin</span>
+            <div class="bg-white text-saul-blue w-8 h-8 flex items-center justify-center rounded-full font-bold">A</div>
+          </div>
+        </div>
+      </header>
+      
+      <h2 class="text-xl font-semibold mb-6 text-saul-blue">Simulador de Interacción con SAUL</h2>
+
+      <div class="flex flex-col h-[70vh] bg-white rounded-lg shadow-lg border">
+        
+        <div id="chat-area" class="flex-1 p-6 overflow-y-auto space-y-4">
+            <div class="flex justify-start">
+                <div class="max-w-xs lg:max-w-md bg-gray-200 text-gray-800 p-3 rounded-xl rounded-tl-none shadow-sm text-sm">
+                    <p class="font-bold text-saul-blue mb-1">SAUL Asistente</p>
+                    <p>Hola Admin, estoy listo para simular una conversación. Prueba a preguntarme sobre horarios, materias o trámites.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4 border-t border-gray-200 bg-saul-light">
+            <div class="flex space-x-4 mb-3">
+                <button id="toggle-simulacion" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md text-sm hover:bg-gray-400 transition duration-150">
+                    Modo: Estudiante
+                </button>
+                <span id="rol-actual" class="text-sm font-semibold text-saul-blue self-center">Rol de Simulación: Estudiante</span>
+            </div>
+            
+            <form id="chat-form" class="flex space-x-3">
+                <input type="text" id="chat-input" placeholder="Escribe aquí la pregunta del estudiante..."
+                       class="flex-1 border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-saul-accent/50 focus:border-saul-accent">
+                
+                <button type="submit" class="bg-saul-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-saul-hover transition duration-150">
+                    Enviar
+                </button>
+            </form>
+        </div>
+      </div>
+      
+    </main>
+  </div>
+</body>
+</html>

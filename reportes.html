@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Reportes - SAUL</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    // Configuración de Tailwind CSS con colores de la Universidad
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'saul-blue': '#1E3A8A',     // Azul oscuro (Principal)
+                    'saul-hover': '#1e40af',    // Azul un poco más claro para hover
+                    'saul-accent': '#FBBF24',   // Amarillo (Acento)
+                    'saul-light': '#F9FAFB',    // Fondo muy claro (Blanco roto)
+                },
+            }
+        }
+    }
+  </script>
+  
+  <script src="Scripts/reportes.js" defer></script>
+  <link rel="icon" type="image/jpeg" href="Imagenes/Logo_unila.jpg">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <div class="flex min-h-screen">
+
+    <aside class="w-64 bg-saul-blue text-white border-r border-saul-hover p-5 flex flex-col">
+      <div class="flex items-center mb-10 border-b border-saul-hover pb-4">
+        <img src="Imagenes/Logo_unila.jpg" alt="SAUL Logo" class="h-8 w-8 rounded-full border-2 border-saul-accent"> 
+        <span class="ml-3 font-semibold text-lg">Panel SAUL</span>
+      </div>
+
+        <nav class="flex flex-col space-y-2">
+          <a href="panel.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Dashboard</a>
+          
+          <a href="materias.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Materias</a>
+
+          <a href="solicitudes.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Solicitudes</a>
+          
+          <a href="reportes.html" class="text-saul-blue font-medium bg-saul-accent px-3 py-2 rounded-lg text-left">Reportes</a>
+
+          <a href="admin-asistente.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Administración del Asistente</a>
+
+         <a href="prueba-asistente.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Prueba del Asistente</a>
+          
+          <a href="configuracion.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Configuración</a>
+        </nav>
+      
+      <div class="mt-auto pt-4 border-t border-saul-hover">
+        <a href="login.html" class="flex items-center space-x-2 text-white/80 hover:text-saul-accent transition duration-150">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span>Cerrar Sesión</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="flex-1 p-8">
+      <div class="flex justify-between items-center mb-8">
+        <h1 class="text-sm text-saul-blue font-semibold">Hola, Admin</h1>
+      </div>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-semibold text-saul-blue">Reportes del Asistente Virtual</h2>
+        <button class="bg-saul-accent text-saul-blue border border-saul-accent px-4 py-2 rounded-md hover:bg-yellow-400 font-medium transition duration-150">Exportar PDF</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div class="bg-white p-6 rounded-lg shadow-sm border text-center">
+          <p class="text-4xl font-bold text-saul-blue">514</p>
+          <p class="text-gray-500 text-sm">Solicitudes totales</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm border text-center">
+          <p class="text-4xl font-bold text-saul-blue">1200</p>
+          <p class="text-gray-500 text-sm">Estudiantes activos</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm border text-center">
+          <p class="text-4xl font-bold text-saul-blue">5</p>
+          <p class="text-gray-500 text-sm">Materias con reportes altos</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+        <div class="bg-white p-6 rounded-lg shadow-sm border">
+          <h3 class="font-semibold mb-4 text-saul-blue">Materias con más solicitudes de ayuda</h3>
+          <canvas id="barChart" height="180"></canvas>
+          <div class="flex space-x-4 mt-4 text-sm text-gray-600">
+            <div class="flex items-center"><span class="w-3 h-3 bg-saul-blue rounded-full mr-2"></span>Programación</div>
+            <div class="flex items-center"><span class="w-3 h-3 bg-saul-accent rounded-full mr-2"></span>Matemática</div>
+            <div class="flex items-center"><span class="w-3 h-3 bg-gray-400 rounded-full mr-2"></span>Psicosocial</div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm border">
+          <h3 class="font-semibold mb-4 text-saul-blue">Distribución por tipo de ayuda</h3>
+          <canvas id="pieChart" height="180"></canvas>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-sm border">
+          <h3 class="font-semibold mb-4 text-saul-blue">Evolución semanal de solicitudes</h3>
+          <canvas id="lineChart" height="200"></canvas>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm border">
+          <h3 class="font-semibold mb-4 text-saul-blue">Insights</h3>
+          <ul class="list-disc ml-5 text-gray-700 space-y-2 text-sm">
+            <li>Carreras con más dificultades</li>
+            <li>Tendencias (+12% solicitudes este mes)</li>
+            <li>Revisar carga académica en Matemáticas</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

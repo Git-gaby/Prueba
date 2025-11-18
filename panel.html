@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel del Administrador - SAUL</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    // Configuración de Tailwind CSS con colores de la Universidad
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'saul-blue': '#1E3A8A',     // Azul oscuro (Principal)
+                    'saul-hover': '#1e40af',    // Azul un poco más claro para hover
+                    'saul-accent': '#FBBF24',   // Amarillo (Acento)
+                    'saul-light': '#F9FAFB',    // Fondo muy claro (Blanco roto)
+                },
+            }
+        }
+    }
+  </script>
+  
+  <script src="panel.js" defer></script>
+  <link rel="icon" type="image/jpeg" href="Imagenes/Logo_unila.jpg">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <div class="flex min-h-screen">
+
+    <aside class="w-64 bg-saul-blue text-white border-r border-saul-hover p-5 flex flex-col">
+      <div class="flex items-center mb-10 border-b border-saul-hover pb-4">
+        <img src="Imagenes/Logo_unila.jpg" alt="SAUL Logo" class="h-8 w-8 rounded-full border-2 border-saul-accent"> 
+        <span class="ml-3 font-semibold text-lg">Panel SAUL</span>
+      </div>
+
+      <nav class="flex flex-col space-y-2">
+        <a href="panel.html" class="text-saul-blue font-medium bg-saul-accent px-3 py-2 rounded-lg text-left" id="dashboard-btn">Dashboard</a>
+        
+        <a href="materias.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left" id="materias-btn">Materias</a>
+
+        <a href="solicitudes.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left" id="solicitudes-btn">Solicitudes</a>
+        
+        <a href="reportes.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left" id="reportes-btn">Reportes</a>
+
+        <a href="admin-asistente.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left" id="admin-asistente-btn">Administración del Asistente</a>
+
+        <a href="prueba-asistente.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Prueba del Asistente</a>
+        
+        <a href="configuracion.html" class="hover:bg-saul-hover px-3 py-2 rounded-lg text-left transition duration-150">Configuración</a>
+      
+      </nav>
+
+      <div class="mt-auto pt-4 border-t border-saul-hover">
+        <a href="login.html" class="flex items-center space-x-2 text-white/80 hover:text-saul-accent transition duration-150">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span>Cerrar Sesión</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="flex-1 p-8">
+      <header class="bg-saul-blue shadow-lg rounded-lg mb-8 p-4 text-white">
+        <div class="flex justify-between items-center">
+          <h1 class="text-2xl font-bold">Dashboard Principal</h1>
+          <div class="flex items-center space-x-4">
+            <span class="text-sm">Bienvenido, Admin</span>
+            <div class="bg-white text-saul-blue w-8 h-8 flex items-center justify-center rounded-full font-bold">A</div>
+          </div>
+        </div>
+      </header>
+
+      <h2 class="text-2xl font-semibold mb-6 text-saul-blue">Panel del Administrador</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div class="bg-white p-6 rounded-lg shadow-sm border flex items-center space-x-4">
+          <div class="bg-saul-accent/20 text-saul-blue p-3 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-4-4h-1m-6 6h6m-6 0H7a4 4 0 01-4-4v-2h5m6 6V9a4 4 0 10-8 0v11" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-3xl font-semibold">1,200</p>
+            <p class="text-gray-500 text-sm">Estudiantes conectados</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm border flex items-center space-x-4">
+          <div class="bg-saul-accent/20 text-saul-blue p-3 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h10m-7 4h7M5 6h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-3xl font-semibold">514</p>
+            <p class="text-gray-500 text-sm">Solicitudes pendientes</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm border flex items-center space-x-4">
+          <div class="bg-saul-accent/20 text-saul-blue p-3 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3v18h18M9 9l3 3-3 3m6 0h3" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-3xl font-semibold">34</p>
+            <p class="text-gray-500 text-sm">Reportes</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="text-xl font-semibold mb-4 text-saul-blue">Configuración de Materias</h3>
+      <div class="bg-white p-6 rounded-lg shadow-sm border flex items-center space-x-4 w-64">
+        <div class="bg-saul-accent/20 text-saul-blue p-3 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h10" />
+          </svg>
+        </div>
+        <div>
+          <p class="text-3xl font-semibold">42</p>
+          <p class="text-gray-500 text-sm">Materias</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

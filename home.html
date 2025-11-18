@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente Virtual SAUL - Acompañamiento 24/7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'saul-blue': '#1E3A8A',     // Azul oscuro (Principal)
+                        'saul-hover': '#1e40af',    // Azul un poco más claro para hover
+                        'saul-accent': '#FBBF24',   // Amarillo (Acento)
+                        'saul-light': '#F9FAFB',    // Fondo muy claro (Blanco roto)
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="icon" type="image/jpeg" href="Imagenes/Logo_unila.jpg">
+</head>
+
+<body class="m-0 font-sans text-gray-800 bg-saul-light">
+    
+    <header class="bg-saul-blue shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="home.html" class="flex items-center text-xl font-bold text-white">
+                    <img src="Imagenes/Logo_unila.jpg" alt="SAUL Logo" class="mr-2 h-8 w-8 rounded-full border-2 border-saul-accent"> 
+                    <span>ASISTENTE SAUL</span>
+                </a>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-white hover:text-saul-accent transition duration-150 font-medium">Inicio</a>
+                    <a href="#about" class="text-white hover:text-saul-accent transition duration-150 font-medium">Sobre SAUL</a>
+                    <a href="#services" class="text-white hover:text-saul-accent transition duration-150 font-medium">El Asistente</a>
+                </nav>
+
+                <div class="flex items-center space-x-4">
+                    <a href="login.html" class="hidden md:inline-flex text-white font-medium hover:text-saul-accent hover:underline">
+                        Iniciar Sesión
+                    </a>
+                    <a href="login.html" class="bg-saul-accent text-saul-blue py-2 px-4 rounded-lg text-sm font-bold 
+                                                 hover:bg-yellow-400 transition duration-300 shadow-md">
+                        Acceder
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-sm font-semibold text-saul-accent uppercase tracking-wider mb-2 block">Acceso Inmediato y Continuo</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-saul-blue leading-tight mb-4">
+                        Asistente Virtual de Acompañamiento SAUL
+                    </h1>
+                    <h2 class="text-xl md:text-2xl font-semibold text-gray-600 mb-8">
+                        Lleva el apoyo académico y psicosocial a tu horario.
+                    </h2>
+                    
+                    <p class="mb-4 text-lg">
+                        El Sistema de Acompañamiento Universitario Lasallista (SAUL) es una rama fundamental de la institución, dedicada al bienestar y permanencia estudiantil. 
+                    </p>
+                    <p class="mb-4 text-lg font-bold text-saul-blue">
+                        Esta plataforma es el punto de acceso al Asistente Virtual de SAUL, tu nuevo aliado para el acompañamiento:
+                    </p>
+                    <ul class="list-disc ml-6 space-y-2 text-lg font-medium text-gray-700">
+                        <li>Acompañamiento Académico: Accede a recursos y resuelve dudas de monitorías y tutorías.</li>
+                        <li>Acompañamiento Psicosocial: Recibe orientación y apoyo cuando lo necesites.</li>
+                    </ul>
+                    <p class="mt-4 text-lg">
+                        A diferencia del acompañamiento personal tradicional (reuniones con tutores o monitores), nuestro Asistente te permite acceder al servicio cuando desees, optimizando tu proceso de formación.
+                    </p>
+                </div>
+
+                <div class="hidden md:block">
+                    <img src="Imagenes/Campus.jpg" alt="Campus Universitario" class="rounded-xl shadow-2xl object-cover w-full h-auto border-4 border-saul-accent/50">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-3xl font-bold text-saul-blue mb-4 border-b-2 border-saul-accent inline-block pb-1">Sobre el Sistema SAUL</h3>
+            <p class="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+                SAUL es el sistema institucional que articula todas las áreas para el bienestar estudiantil, incluyendo las que te conectan con el Asistente Virtual:
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="p-4 bg-saul-blue text-white rounded-lg shadow-md font-semibold text-sm">Vicerrectoría Académica</div>
+                <div class="p-4 bg-saul-blue text-white rounded-lg shadow-md font-semibold text-sm">Vicerrectoría Administrativa y Financiera</div>
+                <div class="p-4 bg-saul-blue text-white rounded-lg shadow-md font-semibold text-sm">Vicerrectoría de Pastoral y Bienestar</div>
+                <div class="p-4 bg-saul-blue text-white rounded-lg shadow-md font-semibold text-sm">Mercadeo</div>
+                <div class="p-4 bg-saul-blue text-white rounded-lg shadow-md font-semibold text-sm">Bienestar Universitario</div>
+                <div class="p-4 bg-saul-blue text-white rounded-lg shadow-md font-semibold text-sm">Fondo Sol</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 md:py-20 bg-saul-blue text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-3xl md:text-4xl font-extrabold mb-4">¿Quieres comenzar a hablar con tu Asistente?</h3>
+            <p class="text-xl mb-8 font-medium">
+                Accede ahora a acompañamiento académico y psicosocial instantáneo.
+            </p>
+            <a href="login.html" class="inline-block bg-saul-accent text-saul-blue py-3 px-8 rounded-lg text-lg font-bold 
+                                         hover:bg-yellow-400 transition duration-300 shadow-xl">
+                Ingresar al Asistente SAUL
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-saul-blue text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2025 Asistente Virtual SAUL. Proyecto de desarrollo para el Sistema de Acompañamiento Universitario Lasallista. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
